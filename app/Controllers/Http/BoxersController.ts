@@ -1,5 +1,6 @@
 import Boxer from "App/Models/Boxer";
-import { response } from "express";
+import { schema } from "@ioc:Adonis/Core/Validator";
+
 
 export default class BoxersController {
   public async index({ response }) {
@@ -9,7 +10,7 @@ export default class BoxersController {
     return response.status(200).send(boxers);
   }
 
-  async show({ params,response }) {
+  async show({ params, response }) {
     const boxer = await Boxer.query()
       .where("id", params.id)
       .firstOrFail();
@@ -17,6 +18,23 @@ export default class BoxersController {
   }
 
   public async store({ request, response }) {
+    const newUserSchema = schema.create({
+      name: schema.string(),
+      description: schema.string(),
+      dob: schema.date(),
+      weight: schema.number(),
+      height: schema.number(),
+      reach: schema.number()
+
+    });
+    try {
+      await request.validate({
+        schema: newUserSchema
+      });
+    } catch (error) {
+      response.badRequest(error.messages);
+      return;
+    }
     const boxer = new Boxer();
     boxer.name = request.body().name;
     boxer.description = request.body().description;

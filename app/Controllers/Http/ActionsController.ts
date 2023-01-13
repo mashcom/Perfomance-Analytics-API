@@ -1,5 +1,4 @@
 import Action from "App/Models/Action";
-import Outcome from "App/Models/Outcome";
 
 export default class ActionsController {
 
