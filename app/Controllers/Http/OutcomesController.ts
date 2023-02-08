@@ -14,7 +14,9 @@ export default class OutcomesController {
     outcome.boxer_id = request.body().boxer_id;
     outcome.fight_id = request.body().fight_id;
     outcome.target_id = (request.body().target_id==null)?4:request.body().target_id;
+    outcome.round = request.body().round;
 
+    console.log(request.body())
     if (await outcome.save()) {
       return response.status(200).send({ message: "Outcome added successfully", data: await Outcome.find(outcome.id) });
     }

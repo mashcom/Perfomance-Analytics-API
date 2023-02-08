@@ -24,7 +24,7 @@ export default class BoxersController {
       dob: schema.date(),
       weight: schema.number(),
       height: schema.number(),
-      reach: schema.number()
+      reach: schema.string()
 
     });
     try {

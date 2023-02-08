@@ -33,6 +33,9 @@
       "@adonisjs/shield",
       "@japa/preset-adonis/build/adonis-typings",
       "@adonisjs/lucid"
+    ],
+    "lib": [
+      "dom"
     ]
   }
 }
