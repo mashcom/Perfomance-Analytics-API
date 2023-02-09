@@ -38,6 +38,8 @@ Route.group(() => {
   Route.resource('settings', 'SettingsController').as('setting')
   Route.resource('uploads', 'UploadsController').as('uploads')
   Route.resource('classes', 'ClassController').as('classes')
+  Route.resource('round', 'RoundController').as('round')
+
 
 
 }).prefix('api/v1')

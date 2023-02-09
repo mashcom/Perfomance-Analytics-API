@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
 import { BaseModel, column, HasMany, hasMany } from "@ioc:Adonis/Lucid/Orm";
 import Outcome from "App/Models/Outcome";
+import Report from "App/Models/Report";
 
 export default class Action extends BaseModel {
   @column({ isPrimary: true })
@@ -19,6 +20,13 @@ export default class Action extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime;
 
-  @hasMany(() => Outcome, { localKey:"id", foreignKey: "action_id" })
-  public outcomes: HasMany<typeof Outcome>;
+  @hasMany(() => Report, { localKey:"id", foreignKey: "action_id" })
+  public outcomes: HasMany<typeof Report>;
+
+  @hasMany(() => Report, { localKey:"id", foreignKey: "action_id" })
+  public reports: HasMany<typeof Report>;
+
+
+  @column()
+  public total:any;
 }

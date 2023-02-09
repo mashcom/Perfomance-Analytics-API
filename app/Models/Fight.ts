@@ -31,5 +31,6 @@ export default class Fight extends BaseModel {
   public opponent: HasOne<typeof Boxer>;
 
 
-
+  @column()
+  public total:any;
 }

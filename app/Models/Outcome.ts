@@ -5,6 +5,7 @@ import Boxer from "App/Models/Boxer";
 import Target from "App/Models/Target";
 
 export default class Outcome extends BaseModel {
+  [x: string]: number;
   @column({ isPrimary: true })
   public id: number;
 
@@ -40,5 +41,14 @@ export default class Outcome extends BaseModel {
 
   @hasOne(() => Target, { localKey: "target_id", foreignKey: "id" })
   public target: HasOne<typeof Target>;
+
+  @column()
+  public actions:any;
+
+  @column()
+  public boxers:any;
+
+  @column()
+  public total:any;
 
 }

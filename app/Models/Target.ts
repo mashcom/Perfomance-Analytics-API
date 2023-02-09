@@ -13,4 +13,11 @@ export default class Target extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime;
+
+  @column()
+  public outcomes:any;
+
+  @column()
+  public total:any;
+
 }

@@ -36,4 +36,6 @@ export default class Boxer extends BaseModel {
   @hasMany(() => Fight, { foreignKey: "boxer2" })
   public away_fight: HasMany<typeof Fight>;
 
+  @column()
+  public targets:any;
 }
